@@ -63,3 +63,8 @@
   twm &
   //窗口终于有边框了，可以拖动了！不过太简陋了
   
+7.安装xfce
+  给Debian安装Xfce桌面
+  1、sudo apt-get install xorg xdm xfce4
+  2、vi ~/.xinitrc，然后输入：exec xfce4，在终端输入startx命令后就能进入xfce4，或直接在终端输入startxfce4命令。
+  
