@@ -1,3 +1,4 @@
+  注意所有操作都是在root用户下
 1.下载debian10.5,官网或国内镜像
   www.debian.org
   https://mirrors.tuna.tsinghua.edu.cn/debian-cd/
@@ -39,4 +40,26 @@
     /etc/init.d/networking restart
   2) VMWARE配置问题 由NAT模式改为桥接模式，最络解决联网问题
     
+5.安装源配置
+  参考 https://www.cnblogs.com/darkluna/p/12345022.html (丨墨月丨)
+  参考 https://www.debian.cn/archives/90
+  源列表文件通常在/etc/apt/sources.list，里面记录了你所用的源服务器地址
+    vi etc\apt\source.list
+    # vim打开安装源列表文件并进行相应编辑
+    国内源：https://mirrors.tuna.tsinghua.edu.cn/debian
     
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+    # deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
+    deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
+  更新
+    sudo apt-get update
+    sudo apt-get upgrade
+6.安装xorg 参考 https://www.oschina.net/question/23734_27455
+  apt-get install xorg
+  终端执行 xinit, ok
+  
+  apt-get install twm
+  //OK，试着在终端中执行命令：
+  twm &
+  //窗口终于有边框了，可以拖动了！不过太简陋了
+  
