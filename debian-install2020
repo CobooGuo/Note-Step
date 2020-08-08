@@ -1,0 +1,42 @@
+1.下载debian10.5,官网或国内镜像
+  www.debian.org
+  https://mirrors.tuna.tsinghua.edu.cn/debian-cd/
+  安装文件 debian-10.5.0-i386-netinst.iso，最小网络安装版。
+  由于虚拟机配置问题，在安装过程中没有探测到网络和语言设置引起了一些问题。
+  
+2.虚拟机使用VMWARE
+3.安装过程中选择了中文模式，造成了CLI显示乱码。
+  参考https://www.cnblogs.com/long2015/p/long2015z.html(作者 long2015)
+  vi /etc/locale.gen //注释掉最后一行，再开启自已选的语言
+  ”debian设置英文模式
+  在虚拟机上装debian，发现console下中文不显示。
+  各种export方法试过，始终无效。废了一个小时终于找到方法了。记录之。
+    debian设置语言的方法：
+    编辑文件 /etc/locale.gen
+    root用户执行 locale-gen
+    重启ok“
+    
+4.网络未开启问题
+  1) ifconfig 不能使用，使用 ip a 获知 ens33网卡没有正确配置
+    参考 https://www.cnblogs.com/lizunicon/p/3798122.html (作者 怒杀神)
+      #vi /etc/network/interfaces
+      
+   Debian下配置网络的方法
+    1．网络配置
+    配置网卡
+    修改 /etc/network/interfaces 添加如下
+
+    auto eth0 #开机自动激活
+    //静态
+    iface eth0 inte static #静态IP
+    address 192.168.0.56 #本机IP
+    netmask 255.255.255.0 #子网掩码
+    gateway 192.168.0.254 #路由网关
+    //or动态
+    iface eth0 inet dhcp
+    设置DNS
+    重启网络
+    /etc/init.d/networking restart
+  2) VMWARE配置问题 由NAT模式改为桥接模式，最络解决联网问题
+    
+    
