@@ -13,7 +13,7 @@
   在虚拟机上装debian，发现console下中文不显示。
   各种export方法试过，始终无效。废了一个小时终于找到方法了。记录之。
     debian设置语言的方法：
-    编辑文件 /etc/locale.gen
+    编辑文件 /etc/locale.gen， !!!/etc/default/locale debian默认启用这个配置!!!
     root用户执行 locale-gen
     重启ok“
      在进行以下步骤之前先在终端运行以下命令：
