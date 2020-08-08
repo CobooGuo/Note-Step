@@ -16,7 +16,12 @@
     编辑文件 /etc/locale.gen
     root用户执行 locale-gen
     重启ok“
-    
+     在进行以下步骤之前先在终端运行以下命令：
+      sudo locale-gen zh_CN.UTF-8
+      sudo locale-gen
+      sudo locale 
+      reboot
+      
 4.网络未开启问题
   1) ifconfig 不能使用，使用 ip a 获知 ens33网卡没有正确配置
     参考 https://www.cnblogs.com/lizunicon/p/3798122.html (作者 怒杀神)
@@ -67,4 +72,19 @@
   给Debian安装Xfce桌面
   1、sudo apt-get install xorg xdm xfce4
   2、vi ~/.xinitrc，然后输入：exec xfce4，在终端输入startx命令后就能进入xfce4，或直接在终端输入startxfce4命令。
+  
+8.安装gnome
+  参考 https://wiki.debian.org/Gnome
+  # apt-get install task-gnome-desktop
+9.系统设置更改 区域&语言 防止gnome-terminal无法启动
+  参考 http://www.mamicode.com/info-detail-2296718.html
+    1.Locale not supported by C library.
+      # 	Using the fallback 'C' locale.
+    2.把语言环境调整过来
+    Applications----->System Tools----->Setting--->Region &Language
+    确保 "Language" 和"Formats"是对应的，比如，Language是English的话，Formats也一定要是English才行，不管你是美式英语还是英式英语
+    3.设置好后重启电脑就恢复正常
+10.给terminal添加启动快捷键 参考 https://blog.csdn.net/qq_15601471/article/details/92781475
+  设置为 CTRL+ALT+T
+  
   
