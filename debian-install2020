@@ -87,4 +87,7 @@
 10.给terminal添加启动快捷键 参考 https://blog.csdn.net/qq_15601471/article/details/92781475
   设置为 CTRL+ALT+T
   
-  
+  11. 网络问题 VMware虚拟机安装ubuntu18网卡不可用无法上网解决方法
+  参考：https://blog.csdn.net/u010425418/article/details/104585156
+  ref1.在VMware菜单栏中依次查看 编辑→虚拟网路编辑器→更改设置，确保桥接模式连接到正确的网络适配器，不要选择自动。
+  ref2.在VMware WorkStation依次打开确认， 虚拟机→设置→网络适配器→桥接模式
